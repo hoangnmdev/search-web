@@ -169,7 +169,7 @@ This is a submission for the [GovTech's 2025 assignment](https://gist.github.com
 
    ```bash
    git clone https://github.com/hoangnmdev/search-web.git
-   cd govtech-react-assignment
+   cd search-web
    ```
 
 2. Install dependencies
