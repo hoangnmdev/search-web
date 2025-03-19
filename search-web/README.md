@@ -1,54 +1,225 @@
-# React + TypeScript + Vite
+# Web Dev Tech Assignment for GovTech - 2025
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A search portal SPA that allows users to search for information on the Government of Singapore's website.
 
-Currently, two official plugins are available:
+This is a submission for the [GovTech's 2025 assignment](https://gist.github.com/yuhong90/b5544baebde4bfe9fe2d12e8e5502cbf).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 💻 Table of Contents
 
-## Expanding the ESLint configuration
+- 🗄️ [Project Structure](#project-structure)
+- ⚙️ [Installation](#installation)
+- 🚄 [Run the App](#run-the-app)
+- 🧪 [Run Unit Tests](#run-unit-tests)
+- 🧱 [Technologies Used](#technologies-used)
+- 📷 [Preview](#preview)
+- 📝 [Assumptions](#assumptions)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+<h2 id="project-structure">🗄️ Project Structure</h2>
+
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+└─ search-web
+   ├─ assets
+   ├─ coverage
+   │  ├─ coverage-final.json
+   │  ├─ lcov-report
+   │  │  ├─ base.css
+   │  │  ├─ block-navigation.js
+   │  │  ├─ components
+   │  │  │  ├─ error
+   │  │  │  │  ├─ index.html
+   │  │  │  │  └─ index.tsx.html
+   │  │  │  └─ ui
+   │  │  │     └─ HighLightText
+   │  │  │        ├─ index.html
+   │  │  │        └─ index.tsx.html
+   │  │  ├─ favicon.png
+   │  │  ├─ index.html
+   │  │  ├─ mock
+   │  │  │  ├─ index.html
+   │  │  │  └─ mock-filter.ts.html
+   │  │  ├─ pages
+   │  │  │  └─ SearchPage
+   │  │  │     ├─ components
+   │  │  │     │  ├─ SearchBox
+   │  │  │     │  │  ├─ index.html
+   │  │  │     │  │  └─ index.tsx.html
+   │  │  │     │  ├─ SearchPageBanner
+   │  │  │     │  │  ├─ index.html
+   │  │  │     │  │  └─ index.tsx.html
+   │  │  │     │  └─ SearchResult
+   │  │  │     │     ├─ index.html
+   │  │  │     │     └─ index.tsx.html
+   │  │  │     ├─ index.html
+   │  │  │     └─ index.tsx.html
+   │  │  ├─ prettify.css
+   │  │  ├─ prettify.js
+   │  │  ├─ services
+   │  │  │  ├─ index.html
+   │  │  │  └─ search.ts.html
+   │  │  ├─ sort-arrow-sprite.png
+   │  │  ├─ sorter.js
+   │  │  ├─ src
+   │  │  │  ├─ App.tsx.html
+   │  │  │  ├─ components
+   │  │  │  │  ├─ error
+   │  │  │  │  │  ├─ index.html
+   │  │  │  │  │  └─ index.tsx.html
+   │  │  │  │  ├─ icons
+   │  │  │  │  │  ├─ CrossIcon.tsx.html
+   │  │  │  │  │  ├─ index.html
+   │  │  │  │  │  ├─ LogoIcon.tsx.html
+   │  │  │  │  │  └─ SearchIcon.tsx.html
+   │  │  │  │  └─ ui
+   │  │  │  │     └─ HighLightText
+   │  │  │  │        ├─ index.html
+   │  │  │  │        └─ index.tsx.html
+   │  │  │  ├─ index.html
+   │  │  │  ├─ mock
+   │  │  │  │  ├─ index.html
+   │  │  │  │  └─ mock-filter.ts.html
+   │  │  │  ├─ pages
+   │  │  │  │  └─ SearchPage
+   │  │  │  │     ├─ components
+   │  │  │  │     │  ├─ SearchBox
+   │  │  │  │     │  │  ├─ index.html
+   │  │  │  │     │  │  └─ index.tsx.html
+   │  │  │  │     │  ├─ SearchPageBanner
+   │  │  │  │     │  │  ├─ index.html
+   │  │  │  │     │  │  └─ index.tsx.html
+   │  │  │  │     │  └─ SearchResult
+   │  │  │  │     │     ├─ index.html
+   │  │  │  │     │     └─ index.tsx.html
+   │  │  │  │     ├─ index.html
+   │  │  │  │     └─ index.tsx.html
+   │  │  │  ├─ services
+   │  │  │  │  ├─ index.html
+   │  │  │  │  └─ search.ts.html
+   │  │  │  └─ utils
+   │  │  │     ├─ highlight.ts.html
+   │  │  │     └─ index.html
+   │  │  └─ utils
+   │  │     ├─ highlight.ts.html
+   │  │     └─ index.html
+   │  └─ lcov.info
+   ├─ eslint.config.js
+   ├─ index.html
+   ├─ package-lock.json
+   ├─ package.json
+   ├─ public
+   │  └─ vite.svg
+   ├─ README.md
+   ├─ src
+   │  ├─ App.tsx
+   │  ├─ assets
+   │  │  ├─ react.svg
+   │  │  └─ singapore-lion.png
+   │  ├─ components
+   │  │  ├─ error
+   │  │  │  └─ index.tsx
+   │  │  ├─ icons
+   │  │  │  ├─ CrossIcon.tsx
+   │  │  │  ├─ LogoIcon.tsx
+   │  │  │  └─ SearchIcon.tsx
+   │  │  └─ ui
+   │  │     └─ HighLightText
+   │  │        └─ index.tsx
+   │  ├─ index.css
+   │  ├─ main.tsx
+   │  ├─ mock
+   │  │  ├─ data
+   │  │  │  ├─ queryResult.json
+   │  │  │  └─ suggestions.json
+   │  │  └─ mock-filter.ts
+   │  ├─ pages
+   │  │  └─ SearchPage
+   │  │     ├─ components
+   │  │     │  ├─ SearchBox
+   │  │     │  │  ├─ index.test.tsx
+   │  │     │  │  └─ index.tsx
+   │  │     │  ├─ SearchPageBanner
+   │  │     │  │  └─ index.tsx
+   │  │     │  └─ SearchResult
+   │  │     │     ├─ index.test.tsx
+   │  │     │     └─ index.tsx
+   │  │     ├─ index.test.tsx
+   │  │     └─ index.tsx
+   │  ├─ services
+   │  │  ├─ search.test.ts
+   │  │  └─ search.ts
+   │  ├─ types
+   │  │  └─ index.ts
+   │  ├─ utils
+   │  │  ├─ highlight.test.ts
+   │  │  └─ highlight.ts
+   │  └─ vite-env.d.ts
+   ├─ tsconfig.app.json
+   ├─ tsconfig.json
+   ├─ tsconfig.node.json
+   └─ vite.config.ts
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
 ```
+
+<h2 id="installation">⚙️ Installation</h2>
+- Node.js (version 18 and above)
+- npm (comes with NodeJS)
+
+1. Clone the repository
+
+   ```bash
+   git clone https://github.com/hoangnmdev/search-web.git
+   cd govtech-react-assignment
+   ```
+
+2. Install dependencies
+
+   ```bash
+    npm install
+   ```
+
+<h2 id="run-the-app">🚄 Run the App</h2>
+
+This will start a development server on port 5173 by default.
+
+```bash
+npm run dev
+```
+
+Open your browser and go to http://localhost:5173 (vite serves the app by default on port 5173)
+
+<h2 id="run-unit-tests">🧪 Run Unit Tests</h2>
+
+```bash
+npm run test
+```
+
+![test coverage](./docs/test-cov.png)
+
+Test library used:
+
+- [Jest](https://jestjs.io/)
+- [React Testing Library](https://testing-library.com/)
+
+<h2 id="technologies-used">🧱 Technologies Used</h2>
+
+- **Frontend**: ReactJS, Typescript
+- **Build tool**: Vite
+- **Testing tool**: React Testing Library, Jest
+
+<h2 id="preview">📷 Preview</h2>
+
+- **Web view**\
+![search input](./docs/search-typeahead.png)
+![search result](./docs/search-result.png)
+- **Mobile view**\
+![search input](./docs/search-typeahead-mobile.png)\
+![search result](./docs/search-result-mobile.png)\
+- **Network error**\
+![network error](./docs/network-error.png)
+
+<h2 id="assumptions">📝 Assumptions</h2>
+
+- Each suggestion needs to highlights all words in the search string individually.
+- The mock data for query result only highlights the word 'child'. An additional filter has been added to dynamically change the highlights array to match the actual search word.
+- If a user search has multiple words and they all have synonyms, only the synonyms of the first word is used to generate the extra suggestion list. This is to keep things simple.
