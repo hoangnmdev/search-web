@@ -1,8 +1,8 @@
-import SearchBox from "./components/SearchBox/index.tsx";
-import SearchPageBanner from "./components/SearchPageBanner/index.tsx";
-import SearchResult from "./components/SearchResult/index.tsx";
-import { fetchSearchResult } from "../../services/search.ts";
-import { ISearchResultResponse } from "../../types/index.ts";
+import SearchBox from "./components/SearchBox/index";
+import SearchPageBanner from "./components/SearchPageBanner/index";
+import SearchResult from "./components/SearchResult/index";
+import { fetchSearchResult } from "../../services/search";
+import { ISearchResultResponse } from "../../types/index";
 import { useState } from "react";
 const SearchPage = () => {
   const [searchResult, setSearchResult] =

@@ -34,6 +34,14 @@
       "!src/**/*.test.{ts,tsx}",
       "!src/**/*.d.ts"
     ],
+    "coveragePathIgnorePatterns": [
+      "src/components/error/",
+      "src/components/icons/",
+      "src/mock/",
+      "src/main.tsx",
+      "src/App.tsx",
+      "src/index.tsx"
+    ],
     "coverageDirectory": "coverage",
     "coverageReporters": [
       "text",
