@@ -18,146 +18,50 @@ This is a submission for the [GovTech's 2025 assignment](https://gist.github.com
 <h2 id="project-structure">🗄️ Project Structure</h2>
 
 ```
-
-└─ search-web
-   ├─ assets
-   ├─ coverage
-   │  ├─ coverage-final.json
-   │  ├─ lcov-report
-   │  │  ├─ base.css
-   │  │  ├─ block-navigation.js
-   │  │  ├─ components
-   │  │  │  ├─ error
-   │  │  │  │  ├─ index.html
-   │  │  │  │  └─ index.tsx.html
-   │  │  │  └─ ui
-   │  │  │     └─ HighLightText
-   │  │  │        ├─ index.html
-   │  │  │        └─ index.tsx.html
-   │  │  ├─ favicon.png
-   │  │  ├─ index.html
-   │  │  ├─ mock
-   │  │  │  ├─ index.html
-   │  │  │  └─ mock-filter.ts.html
-   │  │  ├─ pages
-   │  │  │  └─ SearchPage
-   │  │  │     ├─ components
-   │  │  │     │  ├─ SearchBox
-   │  │  │     │  │  ├─ index.html
-   │  │  │     │  │  └─ index.tsx.html
-   │  │  │     │  ├─ SearchPageBanner
-   │  │  │     │  │  ├─ index.html
-   │  │  │     │  │  └─ index.tsx.html
-   │  │  │     │  └─ SearchResult
-   │  │  │     │     ├─ index.html
-   │  │  │     │     └─ index.tsx.html
-   │  │  │     ├─ index.html
-   │  │  │     └─ index.tsx.html
-   │  │  ├─ prettify.css
-   │  │  ├─ prettify.js
-   │  │  ├─ services
-   │  │  │  ├─ index.html
-   │  │  │  └─ search.ts.html
-   │  │  ├─ sort-arrow-sprite.png
-   │  │  ├─ sorter.js
-   │  │  ├─ src
-   │  │  │  ├─ App.tsx.html
-   │  │  │  ├─ components
-   │  │  │  │  ├─ error
-   │  │  │  │  │  ├─ index.html
-   │  │  │  │  │  └─ index.tsx.html
-   │  │  │  │  ├─ icons
-   │  │  │  │  │  ├─ CrossIcon.tsx.html
-   │  │  │  │  │  ├─ index.html
-   │  │  │  │  │  ├─ LogoIcon.tsx.html
-   │  │  │  │  │  └─ SearchIcon.tsx.html
-   │  │  │  │  └─ ui
-   │  │  │  │     └─ HighLightText
-   │  │  │  │        ├─ index.html
-   │  │  │  │        └─ index.tsx.html
-   │  │  │  ├─ index.html
-   │  │  │  ├─ mock
-   │  │  │  │  ├─ index.html
-   │  │  │  │  └─ mock-filter.ts.html
-   │  │  │  ├─ pages
-   │  │  │  │  └─ SearchPage
-   │  │  │  │     ├─ components
-   │  │  │  │     │  ├─ SearchBox
-   │  │  │  │     │  │  ├─ index.html
-   │  │  │  │     │  │  └─ index.tsx.html
-   │  │  │  │     │  ├─ SearchPageBanner
-   │  │  │  │     │  │  ├─ index.html
-   │  │  │  │     │  │  └─ index.tsx.html
-   │  │  │  │     │  └─ SearchResult
-   │  │  │  │     │     ├─ index.html
-   │  │  │  │     │     └─ index.tsx.html
-   │  │  │  │     ├─ index.html
-   │  │  │  │     └─ index.tsx.html
-   │  │  │  ├─ services
-   │  │  │  │  ├─ index.html
-   │  │  │  │  └─ search.ts.html
-   │  │  │  └─ utils
-   │  │  │     ├─ highlight.ts.html
-   │  │  │     └─ index.html
-   │  │  └─ utils
-   │  │     ├─ highlight.ts.html
-   │  │     └─ index.html
-   │  └─ lcov.info
-   ├─ eslint.config.js
-   ├─ index.html
-   ├─ package-lock.json
-   ├─ package.json
-   ├─ public
-   │  └─ vite.svg
-   ├─ README.md
-   ├─ src
-   │  ├─ App.tsx
-   │  ├─ assets
-   │  │  ├─ react.svg
-   │  │  └─ singapore-lion.png
-   │  ├─ components
-   │  │  ├─ error
-   │  │  │  └─ index.tsx
-   │  │  ├─ icons
-   │  │  │  ├─ CrossIcon.tsx
-   │  │  │  ├─ LogoIcon.tsx
-   │  │  │  └─ SearchIcon.tsx
-   │  │  └─ ui
-   │  │     └─ HighLightText
-   │  │        └─ index.tsx
-   │  ├─ index.css
-   │  ├─ main.tsx
-   │  ├─ mock
-   │  │  ├─ data
-   │  │  │  ├─ queryResult.json
-   │  │  │  └─ suggestions.json
-   │  │  └─ mock-filter.ts
-   │  ├─ pages
-   │  │  └─ SearchPage
-   │  │     ├─ components
-   │  │     │  ├─ SearchBox
-   │  │     │  │  ├─ index.test.tsx
-   │  │     │  │  └─ index.tsx
-   │  │     │  ├─ SearchPageBanner
-   │  │     │  │  └─ index.tsx
-   │  │     │  └─ SearchResult
-   │  │     │     ├─ index.test.tsx
-   │  │     │     └─ index.tsx
-   │  │     ├─ index.test.tsx
-   │  │     └─ index.tsx
-   │  ├─ services
-   │  │  ├─ search.test.ts
-   │  │  └─ search.ts
-   │  ├─ types
-   │  │  └─ index.ts
-   │  ├─ utils
-   │  │  ├─ highlight.test.ts
-   │  │  └─ highlight.ts
-   │  └─ vite-env.d.ts
-   ├─ tsconfig.app.json
-   ├─ tsconfig.json
-   ├─ tsconfig.node.json
-   └─ vite.config.ts
+src
+├─ App.tsx
+├─ assets
+│  ├─ react.svg
+│  └─ singapore-lion.png
+├─ components
+│  ├─ error
+│  │  └─ index.tsx
+│  ├─ icons
+│  │  ├─ CrossIcon.tsx
+│  │  ├─ LogoIcon.tsx
+│  │  └─ SearchIcon.tsx
+│  └─ ui
+│     └─ HighLightText
+│        └─ index.tsx
+├─ index.css
+├─ main.tsx
+├─ mock
+│  ├─ data
+│  │  ├─ queryResult.json
+│  │  └─ suggestions.json
+│  └─ mock-filter.ts
+├─ pages
+│  └─ SearchPage
+│     ├─ components
+│     │  ├─ SearchBox
+│     │  │  ├─ index.test.tsx
+│     │  │  └─ index.tsx
+│     │  ├─ SearchPageBanner
+│     │  │  └─ index.tsx
+│     │  └─ SearchResult
+│     │     ├─ index.test.tsx
+│     │     └─ index.tsx
+│     ├─ index.test.tsx
+│     └─ index.tsx
+├─ services
+│  ├─ search.test.ts
+│  └─ search.ts
+├─ types
+│  └─ index.ts
+├─ utils
+│  ├─ highlight.test.ts
+│  └─ highlight.ts
+└─ vite-env.d.ts
 
 ```
 
